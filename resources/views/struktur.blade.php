@@ -14,11 +14,11 @@
             class="sec-title-style4 text-center"
             style="margin-bottom: 0px; padding-bottom: 0px"
           >
-            <p id="section4"></p>
+            <p id="section5"></p>
             <div class="big-title">
               <h2>
                 Struktur Organisasi<br />
-                Perwakilan Ombudsman RI Kalimantan Selatan
+                Ombudsman Republik Indonesia
               </h2>
             </div>
             <div class="border-box center">
@@ -26,12 +26,17 @@
               <div class="borders-right thm-bgc3"></div>
             </div>
           </div>
-          <img
-            style="margin-top: 0"
-            src="\assets\images\strukturOrganisasi.jpg"
-            width="1500"
-            alt=""
-          />
+          @if($strukturOrganisasis->isNotEmpty())
+            <img
+              style="margin-top: 0"
+              src="{{ asset('storage/' . $strukturOrganisasis->last()->photo) }}"
+              width="1500"
+              alt="Struktur Organisasi"
+            />
+          @else
+            <p>No Struktur Organisasi available.</p>
+          @endif
         </div>
-      </section>
+    </section>
+    
       <!--End Work Process Area Style2 Struktur Organisasi-->

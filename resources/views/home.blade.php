@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- For IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="/assets/css/aos.css" />
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/assets/css/imp.css" />
@@ -187,81 +187,54 @@
       <!--Start About Style3 Area Visi dan Misi-->
       <section id="section2" class="about-style3-area">
         <div class="container">
-          <div class="row">
-            <div class="col-xl-6 col-lg-9 col-md-10">
-              <div class="about-style3-image-box">
-                <div
-                  class="patter-box"
-                  style="
-                    background-image: url(/assets/images/pattern/pattern-bg-1.png);
-                  "
-                ></div>
-                <div class="inner">
-                  <img style="width: 550px;height: 825px; object-fit: cover"
-                    src="/assets/images/slider/3.jpeg"
-                    alt="Awesome Image"
-                  />
+            <div class="row">
+                <div class="col-xl-6 col-lg-9 col-md-10">
+                    <div class="about-style3-image-box">
+                        <div class="patter-box"
+                            style="background-image: url(/assets/images/pattern/pattern-bg-1.png);"></div>
+                        <div class="inner">
+                            <img style="width: 550px;height: 825px; object-fit: cover"
+                                src="/assets/images/slider/3.jpeg"
+                                alt="Awesome Image" />
+                        </div>
+                    </div>
                 </div>
-              </div>
+                <div class="col-xl-6 col-lg-12">
+                    <div class="about-style3-text-box">
+                        <div class="sec-title-style4">
+                            <p>ABOUT COMPANY</p>
+                            <div class="big-title">
+                                <h2>
+                                    Visi dan Misi<br />
+                                    Ombudsman
+                                </h2>
+                            </div>
+                            <div class="border-box">
+                                <div class="borders-left thm-bgc3"></div>
+                                <div class="borders-right thm-bgc3"></div>
+                            </div>
+                        </div>
+                        <div class="inner-contant">
+                            <div class="text-holder"></div>
+                            <ul>
+                                @foreach ($visiMisi as $item)
+                                <li>
+                                    <div class="icon">
+                                        <span class="flaticon-{{ $item->jenis == 'Visi' ? 'planning' : 'business' }}"></span>
+                                    </div>
+                                    <div class="text">
+                                        <h3>{{ $item->jenis }}</h3>
+                                        <p>{{ $item->deskripsi }}</p>
+                                    </div>
+                                </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-xl-6 col-lg-12">
-              <div class="about-style3-text-box">
-                <div class="sec-title-style4">
-                  <p>ABOUT COMPANY</p>
-                  <div class="big-title">
-                    <h2>
-                      Visi dan Misi<br />
-                      Ombudsman
-                    </h2>
-                  </div>
-                  <div class="border-box">
-                    <div class="borders-left thm-bgc3"></div>
-                    <div class="borders-right thm-bgc3"></div>
-                  </div>
-                </div>
-                <div class="inner-contant">
-                  <div class="text-holder"></div>
-                  <ul>
-                    <li>
-                      <div class="icon">
-                        <span class="flaticon-planning"></span>
-                      </div>
-                      <div class="text">
-                        <h3>Visi</h3>
-                        <p>
-                          Lembaga Pengawas yang Efektif, Dipercaya, dan
-                          Berkeadilan guna Mewujudkan Pelayanan Publik yang
-                          Berkualitas
-                        </p>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="icon">
-                        <span class="flaticon-business"></span>
-                      </div>
-                      <div class="text">
-                        <h3>Misi</h3>
-                        <p class="mb-2">
-                          1. Mewujudkan Profesionalisme Fungsi Pengawasan
-                          Penyelenggaraan Pelayanan Publik
-                        </p>
-                        <p class="mb-2">
-                          2. Mewujudkan Kepatuhan Penyelenggaraan Pelayanan
-                          Publik Terhadap Hasil Pengawasan Ombudsman
-                        </p>
-                        <p class="mb-2">
-                          3. Mewujudkan Pelayanan Publik yang Inklusif Bagi
-                          Seluruh Rakyat Indonesia
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
+    </section>
       <!--End About Style3 Area Visi dan Misi-->
 
       <!--Start Latest Projects Area Kabar Perwakilan-->
@@ -995,161 +968,86 @@
               <div class="borders-right thm-bgc3"></div>
             </div>
           </div>
-          <img
-            style="margin-top: 0"
-            src="\assets\images\strukturOrganisasi.jpeg"
-            width="1500"
-            alt=""
-          />
+          @if($strukturOrganisasis->isNotEmpty())
+            <img
+              style="margin-top: 0"
+              src="{{ asset('storage/' . $strukturOrganisasis->last()->photo) }}"
+              width="1500"
+              alt="Struktur Organisasi"
+            />
+          @else
+            <p>No Struktur Organisasi available.</p>
+          @endif
         </div>
-      </section>
+    </section>
+    
       <!--End Work Process Area Style2 Struktur Organisasi-->
 
       <!--Start Work Process Area Style2 Alur Pelaporan-->
-      <section class="work-process-area style2">
-        <div class="shape1">
-          <img src="/assets/images/shape/round-box.png" alt="" />
-        </div>
-        <div class="shape2 rotate-me">
-          <img src="/assets/images/shape/round-box-2.png" alt="" />
-        </div>
-        <div class="shape3 rotate-me">
-          <img src="/assets/images/shape/shape-1.png" alt="" />
-        </div>
-        <div class="container">
-          <div
-            class="sec-title-style4 text-center"
-            style="margin-bottom: 0px; padding-bottom: 0px"
-          >
-            <p id="section6"></p>
-            <div class="big-title">
+     <!--Start Work Process Area Style2 Alur Pelaporan-->
+<section class="work-process-area style2" style="background-image: url(/assets/images/wave/wave_4.svg); background-repeat: no-repeat; background-position: bottom">
+  <div class="container">
+      <div class="sec-title-style4 text-center mb-4">
+          <div class="big-title">
               <h2>Alur Pelaporan Ombudsman Republik Indonesia</h2>
-            </div>
-            <div class="border-box center">
+          </div>
+          <div class="border-box center">
               <div class="borders-left thm-bgc3"></div>
               <div class="borders-right thm-bgc3"></div>
-            </div>
-
-            <div class="row mt-3">
-              <div class="col-12 mt-5">
-                <h2 class="mb-2">Ombudsman RI Menolak Laporan Jika</h2>
-                <div class="row">
-                  <div class="col-3">
-                    <img
-                      src="/assets/images/application-rejected.png"
-                      width="100"
-                      alt=""
-                    />
-                    <h5>
-                      Substansi Laporan bukan merupakan wewenang Ombudsman RI
-                    </h5>
-                  </div>
-                  <div class="col-3">
-                    <img
-                      src="/assets/images/law-and-order.svg"
-                      width="130"
-                      alt=""
-                    />
-                    <h5>
-                      Substansi Laporan sedang dan telah menjadi objek
-                      pemeriksaan pengadilan
-                    </h5>
-                  </div>
-                  <div class="col-3">
-                    <img
-                      src="/assets/images/hourglass (1).jpg"
-                      width="130"
-                      alt=""
-                    />
-                    <h5>
-                      Laporan sedang dalam proses penyelesaian Oleh instansi
-                      yang dilaporkan dan masih dalam tenggang waktu yang patut
-                    </h5>
-                  </div>
-                  <div class="col-3 mt-4">
-                    <img
-                      class="mb-2"
-                      src="/assets/images/paper.png"
-                      width="70"
-                      alt=""
-                    />
-                    <h5>
-                      Laporan yang sama sebelumnya sedang dan/atau telah
-                      ditindaklanjuti Oleh Ombudsman RI
-                    </h5>
-                  </div>
-                </div>
-              </div>
-
-              <div class="border-box center">
-                <div class="borders-left thm-bgc3"></div>
-                <div class="borders-right thm-bgc3"></div>
-              </div>
-
-              <div class="col-12 mt-5">
-                <h2 class="mb-2">Cara Menyampaikan Laporan</h2>
-                <div class="row justify-content-center">
-                  <div class="col-2">
-                    <img
-                      class="mb-2"
-                      src="/assets/images/number/one.png"
-                      width="60"
-                      alt=""
-                    />
-                    <h5>
-                      Datang atau Bersurat ke Kantor Ombudsman RI Pusat atau
-                      Perwakilan di 34 Provinsi
-                    </h5>
-                  </div>
-                  <div class="col-2">
-                    <img
-                      class="mb-2"
-                      src="/assets/images/number/circle-2.png"
-                      width="60"
-                      alt=""
-                    />
-                    <h5>Hubungi : Halo Ombudsman 137</h5>
-                  </div>
-                  <div class="col-2">
-                    <img
-                      class="mb-2"
-                      src="/assets/images/number/circle-3.png"
-                      width="60"
-                      alt=""
-                    />
-                    <h5>WhatsApp ke: 0821 3737 3737</h5>
-                  </div>
-                  <div class="col-2">
-                    <img
-                      class="mb-2"
-                      src="/assets/images/number/circle-4.png"
-                      width="60"
-                      alt=""
-                    />
-                    <h5>
-                      E-mail ke:
-                      <a href="">pengaduan@ ombudsman.go.id</a>
-                    </h5>
-                  </div>
-                  <div class="col-2">
-                    <img
-                      class="mb-2"
-                      src="/assets/images/number/circle-5.png"
-                      width="60"
-                      alt=""
-                    />
-                    <h5>
-                      Mengisi Formulir Pengaduan Online di
-                      <a href="">ombudsman.go.id/ pengaduan</a>
-                    </h5>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
-      </section>
-      <!--End Work Process Area Style2 Alur Pelaporan-->
+      </div>
+      <div class="row">
+          <!-- Kolom kiri untuk gambar pelaporan -->
+          <div class="col-lg-6 col-md-12">
+              <div class="image-box">
+                  <img src="/assets/images/pelaporan.jpeg" alt="Alur Pelaporan" />
+              </div>
+          </div>
+
+          <!-- Kolom kanan untuk ikon dan teks -->
+          <div class="col-lg-6 col-md-12">
+              <div class="text-box">
+                  <div class="col-12 mt-5">
+                      <h2 class="mb-2">Cara Menyampaikan Laporan</h2>
+                      <div class="list-style">
+                          <div class="step">
+                              <div class="icon-text">
+                                  <img class="mb-2" src="/assets/images/alur-pelaporan/number/one.png" width="60" alt="" />
+                                  <h5>Datang atau Bersurat ke Kantor Ombudsman RI Pusat atau Perwakilan di 34 Provinsi</h5>
+                              </div>
+                          </div>
+                          <div class="step">
+                              <div class="icon-text">
+                                  <img class="mb-2" src="/assets/images/alur-pelaporan/number/circle-2.png" width="60" alt="" />
+                                  <h5>Hubungi : Halo Ombudsman 137</h5>
+                              </div>
+                          </div>
+                          <div class="step">
+                              <div class="icon-text">
+                                  <img class="mb-2" src="/assets/images/alur-pelaporan/number/circle-3.png" width="60" alt="" />
+                                  <h5>WhatsApp ke: 0821 3737 3737</h5>
+                              </div>
+                          </div>
+                          <div class="step">
+                              <div class="icon-text">
+                                  <img class="mb-2" src="/assets/images/alur-pelaporan/number/circle-4.png" width="60" alt="" />
+                                  <h5>E-mail ke: <a href="">pengaduan@ombudsman.go.id</a></h5>
+                              </div>
+                          </div>
+                          <div class="step">
+                              <div class="icon-text">
+                                  <img class="mb-2" src="/assets/images/alur-pelaporan/number/circle-5.png" width="60" alt="" />
+                                  <h5>Mengisi Formulir Pengaduan Online di <a href="">ombudsman.go.id/pengaduan</a></h5>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!--End Work Process Area Style2 Alur Pelaporan-->
 
       <!--Start latest blog Style4 area -->
       <section id="section7" class="latest-blog-style4-area">

@@ -5,6 +5,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VisiMisiController;
+use App\Http\Controllers\StrukturOrganisasiController;
+use App\Http\Controllers\PelaporanController; // Tambahkan ini
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +20,14 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::get('/', [HomeController::class,'index']);
+Route::get('/', [HomeController::class, 'index']);
 
 Route::middleware('auth')->group(function () {
     Route::resource('/kelola/slider', SliderController::class);
-    Route::resource('/kelola/beritas', BeritaController::class);    
+    Route::resource('/kelola/beritas', BeritaController::class);   
+    Route::resource('/admin/visimisi', VisiMisiController::class);
+    Route::resource('/admin/strukturorganisasi', StrukturOrganisasiController::class);
+    Route::resource('/admin/pelaporan', PelaporanController::class); // Tambahkan ini
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });
 

@@ -46,3 +46,59 @@
 .navbar .form-control {
   padding: .75rem 1rem;
 }
+.work-process-area.style2 .container {
+  padding: 20px;
+}
+
+.sec-title-style4 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sec-title-style4 .big-title {
+  margin-bottom: 20px;
+}
+
+.border-box.center {
+  margin-bottom: 20px;
+}
+
+.image-box img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.text-box {
+  padding: 20px;
+}
+
+.list-style {
+  display: flex;
+  flex-direction: column;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+}
+
+.icon-text img {
+  margin-right: 15px; /* Distance between icon and text */
+}
+
+.icon-text h5 {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .work-process-area.style2 .container {
+      flex-direction: column;
+  }
+}
